@@ -13,20 +13,24 @@ public class PrincipalRoleImplementationTest {
 
     User professorDaro = new User("0014PRI", "Daro", "Champion",
             "98239hjsdf#", 59, "daro@gmail.com","08046374728",
-            "35 agbaje street", "Ibadan", "Oyo", "academic", "teacher",
-            "male", "nigerian", "professor", "mechatronics", "engineering");
+            "35 agbaje street", "Ibadan", "Oyo", "academic",
+            "teacher","male", "nigerian", "professor",
+            "mechatronics", "engineering");
 
-    User applicantDele = new User("0014PRI", "Dele", "Power", "728u63ed#$", 19,
-            "dele@gmail.com","08046374728", "37 Kumayi street", "Akure", "Ondo",
-            "applicant", "user","male", "nigerian", "0",
-            "economics", "social_sciences");
+    User applicantDele = new User("0014PRI", "Dele", "Power",
+            "728u63ed#$", 19,"dele@gmail.com","08046374728",
+            "37 Kumayi street", "Akure", "Ondo","applicant",
+            "user","male", "nigerian", "0","economics",
+            "social_sciences");
 
-    User studentClaro = new User("0014PRI", "Claro", "Gift", "asjdkf234!", 22,
-            "claro@gmail.com","08046374728", "5 igbedan street", "Ilorin", "Kwara",
-            "student", "student","female", "nigerian", "100",
+    User studentClaro = new User("0014PRI", "Claro", "Gift",
+            "asjdkf234!", 22,"claro@gmail.com","08046374728",
+            "5 igbedan street", "Ilorin", "Kwara","student",
+            "student","female", "nigerian", "100",
             "computer_science", "engineering");
 
-    PrincipalRolesImplementation principalRolesImplementation = new PrincipalRolesImplementation();
+    PrincipalRolesImplementation principalRolesImplementation =
+            new PrincipalRolesImplementation();
 
     @Test
     void queryTeacher() {
@@ -36,7 +40,8 @@ public class PrincipalRoleImplementationTest {
         boolean actual2 =  principalRolesImplementation.queryTeacher("Late coming",
                 professorDaro, professorDaro);
 
-        Assertions.assertAll(() -> Assertions.assertEquals(true, actual1),
+        Assertions.assertAll(
+                () -> Assertions.assertEquals(true, actual1),
                 () -> Assertions.assertEquals(false,actual2)
         );
 
@@ -45,10 +50,13 @@ public class PrincipalRoleImplementationTest {
     @Test
     void expelStudent() {
 
-        boolean actual1 =  principalRolesImplementation.expelStudent("Fighting",studentClaro);
-        boolean actual2 =  principalRolesImplementation.expelStudent("Fighting", applicantDele);
+        boolean actual1 =  principalRolesImplementation.expelStudent("Fighting",
+                principalIsaiah, studentClaro);
+        boolean actual2 =  principalRolesImplementation.expelStudent("Fighting",
+                principalIsaiah, applicantDele);
 
-        Assertions.assertAll(() -> Assertions.assertEquals(true, actual1),
+        Assertions.assertAll(
+                () -> Assertions.assertEquals(true, actual1),
                 () -> Assertions.assertEquals(false,actual2)
         );
 
@@ -57,10 +65,11 @@ public class PrincipalRoleImplementationTest {
     @Test
     void admitApplicant() {
 
-        boolean actual1 = principalRolesImplementation.admitApplicant(21, applicantDele);
-        boolean actual2 = principalRolesImplementation.admitApplicant(16, applicantDele);
+        boolean actual1 = principalRolesImplementation.admitApplicant(21, principalIsaiah, applicantDele);
+        boolean actual2 = principalRolesImplementation.admitApplicant(16, principalIsaiah, applicantDele);
 
-        Assertions.assertAll(() -> Assertions.assertEquals(true, actual1),
+        Assertions.assertAll(
+                () -> Assertions.assertEquals(true, actual1),
                 () -> Assertions.assertEquals(false,actual2)
         );
     }

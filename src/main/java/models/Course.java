@@ -55,7 +55,7 @@ public class Course {
     }
 
     public boolean teachCourse(User teacher) {
-        if (teacher.getUserType().equals("teacher")) {
+        if (teacher.getRole().equals("teacher")) {
             teachers.add(teacher);
             System.out.println(teacher.getFirstName() + " is now teaching the course");
             return true;
