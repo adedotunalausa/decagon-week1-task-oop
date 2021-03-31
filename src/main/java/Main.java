@@ -43,7 +43,7 @@ public class Main {
         principalRolesImplementation.queryTeacher("Came late to work",
                 principalIsaiah, professorDaro);
 
-        //admitting an applicant only done by a principal
+        //admitting an applicant
         System.out.println("Applicant before admission:" + applicantDele.getUserType());
         principalRolesImplementation.admitApplicant(21, principalIsaiah, applicantDele);
         System.out.println("Applicant after admission:" + applicantDele.getUserType());

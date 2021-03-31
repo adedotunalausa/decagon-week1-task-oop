@@ -6,6 +6,12 @@ import services.StudentRoles;
 
 public class StudentRolesImplementation implements StudentRoles {
 
+    /**
+     * this helps students to enroll to a course (i.e take the course).
+     * @param course the course the student is enrolling to.
+     * @param student the student enrolling to a course.
+     * @return {boolean}
+     */
     @Override
     public boolean enrollToCourse(Course course, User student) {
         if (student.getUserType().equals("student")) {
