@@ -34,8 +34,13 @@ public class PrincipalRolesImplementation implements PrincipalRoles {
             System.out.println("Applicant too young to be admitted into the school");
             return false;
         } else {
+            applicant.setUserType("student");
+            applicant.setRole("student");
+            applicant.setLevel("100");
+            applicant.setDepartment(applicant.getDepartment());
+            applicant.setFaculty(applicant.getFaculty());
             System.out.println(applicant.getFirstName() + " has passed all requirements and is " +
-                    "hereby admitted into the school");
+                    "hereby admitted into the department of " + applicant.getDepartment());
             return true;
         }
     }

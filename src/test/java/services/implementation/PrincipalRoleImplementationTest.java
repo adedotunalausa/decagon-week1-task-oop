@@ -18,7 +18,8 @@ public class PrincipalRoleImplementationTest {
 
     User applicantDele = new User("0014PRI", "Dele", "Power", "728u63ed#$", 19,
             "dele@gmail.com","08046374728", "37 Kumayi street", "Akure", "Ondo",
-            "applicant", "user","male", "nigerian");
+            "applicant", "user","male", "nigerian", "0",
+            "economics", "social_sciences");
 
     User studentClaro = new User("0014PRI", "Claro", "Gift", "asjdkf234!", 22,
             "claro@gmail.com","08046374728", "5 igbedan street", "Ilorin", "Kwara",
@@ -30,15 +31,13 @@ public class PrincipalRoleImplementationTest {
     @Test
     void queryTeacher() {
 
-        boolean expected1 = true;
         boolean actual1 =  principalRolesImplementation.queryTeacher("Late coming",
                 principalIsaiah, professorDaro);
-        boolean expected2 = false;
         boolean actual2 =  principalRolesImplementation.queryTeacher("Late coming",
                 professorDaro, professorDaro);
 
-        Assertions.assertAll(() -> Assertions.assertEquals(expected1, actual1),
-                () -> Assertions.assertEquals(expected2,actual2)
+        Assertions.assertAll(() -> Assertions.assertEquals(true, actual1),
+                () -> Assertions.assertEquals(false,actual2)
         );
 
     }
@@ -46,26 +45,23 @@ public class PrincipalRoleImplementationTest {
     @Test
     void expelStudent() {
 
-        boolean expected1 = true;
         boolean actual1 =  principalRolesImplementation.expelStudent("Fighting",studentClaro);
-        boolean expected2 = false;
         boolean actual2 =  principalRolesImplementation.expelStudent("Fighting", applicantDele);
 
-        Assertions.assertAll(() -> Assertions.assertEquals(expected1, actual1),
-                () -> Assertions.assertEquals(expected2,actual2)
+        Assertions.assertAll(() -> Assertions.assertEquals(true, actual1),
+                () -> Assertions.assertEquals(false,actual2)
         );
 
     }
 
     @Test
     void admitApplicant() {
-        boolean expected1 = true;
+
         boolean actual1 = principalRolesImplementation.admitApplicant(21, applicantDele);
-        boolean expected2 = false;
         boolean actual2 = principalRolesImplementation.admitApplicant(16, applicantDele);
 
-        Assertions.assertAll(() -> Assertions.assertEquals(expected1, actual1),
-                () -> Assertions.assertEquals(expected2,actual2)
+        Assertions.assertAll(() -> Assertions.assertEquals(true, actual1),
+                () -> Assertions.assertEquals(false,actual2)
         );
     }
 }

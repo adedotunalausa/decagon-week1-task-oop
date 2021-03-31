@@ -19,7 +19,7 @@ public class User {
     private String department;
     private String faculty;
 
-    //non-academic staff and applicant constructor
+    //non-academic staff constructor
     public User(String id, String firstName, String lastName, String password,
                 int age, String email, String phone, String address, String city,
                 String state, String userType, String role, String gender, String nationality) {
@@ -31,7 +31,7 @@ public class User {
 
     /**
      * Constructor for creating new user, other constructors inherits from this main constructor.
-     * for academic staff and students.
+     * for academic staff, students applicants.
      *
      * @param id a unique identifier, peculiar to individual user.
      * @param firstName First name of the user
@@ -43,16 +43,19 @@ public class User {
      * @param address address of the user
      * @param city city of the user
      * @param state state of the user
-     * @param userType userType of the user which could be "applicant", "student", "academic
-     *                 staff" or "non-academic staff". New applicants will have "applicant" usertype
-     *                 by default and it will automatically change to "student" upon admission.
-     * @param role role of the user which could be "principal", "teacher", "student" or user. This field is not applicable
-     *             to "student" and "applicant" usertype
+     * @param userType userType of the user which could be "applicant", "student", "academic" or "nonAcademic".
+     *                 New applicants will have "applicant" usertype by default and it will automatically
+     *                 change to "student" upon admission.
+     * @param role role of the user which could be "principal", "teacher", "student" or user. This field is not
+     *             applicable to "student" and "applicant" usertype
      * @param gender gender of the user
      * @param nationality nationality of the user
-     * @param level academic level of the user. This is only applicable to students.
-     * @param department department of the user. This is only applicable to "students" and "academic staff" usertype.
-     * @param faculty faculty of the user. This is only applicable to "students" and "academic staff" usertype.
+     * @param level academic level of the user. This is only applicable to students and applicants. it is 0
+     *              by default for applicants
+     * @param department department of the user. This is only applicable to "applicant", "student" and "academic
+     *                   staff" usertype. For applicants, it is the desired department.
+     * @param faculty faculty of the user. This is only applicable to "applicant", "student" and "academic"
+     *                usertype. For applicants it is the desired faculty
      */
     public User(String id, String firstName, String lastName, String password,
                 int age, String email, String phone, String address, String city,
@@ -142,5 +145,9 @@ public class User {
 
     public String getDepartment() {
         return department;
+    }
+
+    public String getFaculty() {
+        return faculty;
     }
 }
