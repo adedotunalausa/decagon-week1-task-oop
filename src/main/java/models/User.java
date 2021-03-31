@@ -1,11 +1,11 @@
 package models;
 
 public class User {
-    private String id;
-    private String firstName;
-    private String lastName;
+    private final String id;
+    private final String firstName;
+    private final String lastName;
     private String password;
-    private int age;
+    private final  int age;
     private String email;
     private String phone;
     private String address;
@@ -13,8 +13,8 @@ public class User {
     private String state;
     private String userType; //student, academicStaff, nonAcademicStaff.
     private String role;
-    private String gender;
-    private String nationality;
+    private final String gender;
+    private final String nationality;
     private String level;
     private String department;
     private String faculty;
@@ -85,7 +85,6 @@ public class User {
 //    public void expelStudent(User principal) {
 //        System.out.println(principal.firstName + " is expelling a student");
 //    }
-
 
     public void setUserType(String userType) {
         this.userType = userType;

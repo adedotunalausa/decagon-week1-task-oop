@@ -3,9 +3,9 @@ package models;
 import java.util.ArrayList;
 
 public class Course {
-    private String name;
-    private String code;
-    private int units;
+    private final String name;
+    private final String code;
+    private final int units;
     private ArrayList<User> teachers = new ArrayList<>();
     private ArrayList<User> enrolledStudents = new ArrayList<>();
 
@@ -15,6 +15,14 @@ public class Course {
         this.units = units;
         this.teachers.add(teacher);
 
+    }
+
+    public void setEnrolledStudent(User enrolledStudent) {
+        this.enrolledStudents.add(enrolledStudent);
+    }
+
+    public void setTeacher(User teacher) {
+        this.teachers.add(teacher);
     }
 
     public String getName() {
@@ -29,39 +37,16 @@ public class Course {
         return units;
     }
 
-    public ArrayList<User> getTeachers() {
-        for (User item: teachers) {
-            System.out.println(item.getFirstName());
-        }
-        return teachers;
-    }
-
-    public ArrayList<User> getEnrolledStudents() {
-        for (User item: enrolledStudents) {
-            System.out.println(item.getFirstName());
-        }
-        return enrolledStudents;
-    }
-
-    public boolean enrollToCourse(User student) {
-        if (student.getUserType().equals("student")) {
-            enrolledStudents.add(student);
-            System.out.println(student.getFirstName() + " has successfully enrolled to the course.");
-            return true;
-        } else {
-            System.out.println("Sorry!!! Only students can enroll to courses.");
-            return false;
+    public void getTeachers() {
+        for(User teacher: teachers) {
+            System.out.println(teacher.getFirstName());
         }
     }
 
-    public boolean teachCourse(User teacher) {
-        if (teacher.getRole().equals("teacher")) {
-            teachers.add(teacher);
-            System.out.println(teacher.getFirstName() + " is now teaching the course");
-            return true;
-        } else {
-            System.out.println("Sorry!!! Only a teacher can teach a course.");
-            return false;
+    public void getEnrolledStudents() {
+        for (User student: enrolledStudents) {
+            System.out.println(student.getFirstName());
         }
     }
+
 }
