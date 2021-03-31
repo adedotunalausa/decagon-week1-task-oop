@@ -1,10 +1,13 @@
 package models;
 
+import java.util.List;
+
 public class Course {
     private String name;
     private String code;
     private byte units;
     private User teacher;
+    private List<User> enrolledStudents;
 
     public Course(String name, String code, byte units, User teacher) {
         this.name = name;

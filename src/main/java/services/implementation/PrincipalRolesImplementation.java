@@ -4,29 +4,28 @@ import models.User;
 import services.PrincipalRoles;
 
 public class PrincipalRolesImplementation implements PrincipalRoles {
+
     @Override
-    public void queryTeacher(String offence, User teacher) {
-        System.out.println(teacher.getFirstName() + " has been queried for " + offence);
+    public boolean queryTeacher(String offence, User principal, User teacher) {
+        if (principal.getRole().equals("principal")) {
+            System.out.println(teacher.getFirstName() + " has been queried and advised to be of good" +
+                    " behaviour before grave actions are taken. Offence: " + offence);
+            return true;
+        } else {
+            System.out.println("Sorry 😝!!! You do not have the privileges to perform this action");
+            return false;
+        }
     }
 
     @Override
-    public void sackTeacher(User teacher) {
-
-    }
-
-    @Override
-    public void paySalary(int amount, User teacher) {
-
-    }
-
-    @Override
-    public void expelStudent(String offence, User student) {
-
-    }
-
-    @Override
-    public void promoteStudent(int score, User student) {
-
+    public boolean expelStudent(String offence, User student) {
+        if (student.getUserType().equals("student") && student.getRole().equals("student")) {
+            System.out.println(student.getFirstName() + " is hereby expelled. Offence: " + offence);
+            return true;
+        } else {
+            System.out.println("Cannot expel a non-student user!");
+            return false;
+        }
     }
 
     @Override
@@ -35,8 +34,10 @@ public class PrincipalRolesImplementation implements PrincipalRoles {
             System.out.println("Applicant too young to be admitted into the school");
             return false;
         } else {
-            System.out.println(applicant.getFirstName() + " has passed all requirements and is hereby admitted into the school");
+            System.out.println(applicant.getFirstName() + " has passed all requirements and is " +
+                    "hereby admitted into the school");
             return true;
         }
     }
+
 }

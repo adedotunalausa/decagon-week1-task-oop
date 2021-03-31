@@ -19,7 +19,7 @@ public class User {
     private String department;
     private String faculty;
 
-    //non-academic staff constructor
+    //non-academic staff and applicant constructor
     public User(String id, String firstName, String lastName, String password,
                 int age, String email, String phone, String address, String city,
                 String state, String userType, String role, String gender, String nationality) {
@@ -29,20 +29,9 @@ public class User {
 
     }
 
-    //academic staff constructor
-    public User(String id, String firstName, String lastName, String password,
-                int age, String email, String phone, String address, String city,
-                String state, String userType, String role, String gender, String nationality,
-                String department, String faculty) {
-
-        this(id, firstName, lastName, password, age, email, phone, address, city,
-                state, userType, role, gender, nationality, null, department, faculty);
-
-    }
-
     /**
      * Constructor for creating new user, other constructors inherits from this main constructor.
-     * It is applicable for creating new students and applicants.
+     * for academic staff and students.
      *
      * @param id a unique identifier, peculiar to individual user.
      * @param firstName First name of the user
@@ -57,7 +46,7 @@ public class User {
      * @param userType userType of the user which could be "applicant", "student", "academic
      *                 staff" or "non-academic staff". New applicants will have "applicant" usertype
      *                 by default and it will automatically change to "student" upon admission.
-     * @param role role of the user which could be "principal" or "teacher". This field is not applicable
+     * @param role role of the user which could be "principal", "teacher", "student" or user. This field is not applicable
      *             to "student" and "applicant" usertype
      * @param gender gender of the user
      * @param nationality nationality of the user
@@ -81,6 +70,7 @@ public class User {
         this.city = city;
         this.state = state;
         this.userType = userType;
+        this.role = role;
         this.gender = gender;
         this.nationality = nationality;
         this.level = level;
@@ -92,6 +82,27 @@ public class User {
 //    public void expelStudent(User principal) {
 //        System.out.println(principal.firstName + " is expelling a student");
 //    }
+
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public void setFaculty(String faculty) {
+        this.faculty = faculty;
+    }
 
     public String getFirstName() {
         return firstName;
